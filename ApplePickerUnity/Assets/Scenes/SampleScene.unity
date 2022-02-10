@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 159817417}
   - component: {fileID: 159817419}
   - component: {fileID: 159817418}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ScoreCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -103, y: 275.5}
+  m_AnchoredPosition: {x: -80, y: 318.5}
   m_SizeDelta: {x: 160, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &159817418
@@ -182,10 +182,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -444,6 +445,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18696e672e643044798711277bb35c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basketPrefab: {fileID: 5818413497033122111, guid: 6793a6ce946d8604da36d56a0f3ae118, type: 3}
+  numBaskets: 3
+  basketBottomY: -14
+  basketSpacingY: 2
+  basketList: []
 --- !u!1 &1455333992
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +473,7 @@ GameObject:
   - component: {fileID: 1455333993}
   - component: {fileID: 1455333995}
   - component: {fileID: 1455333994}
+  - component: {fileID: 1455333996}
   m_Layer: 5
   m_Name: HighScore
   m_TagString: Untagged
@@ -503,10 +522,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -514,7 +533,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: High Score
+  m_Text: 'High Score: 1000'
 --- !u!222 &1455333995
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -523,6 +542,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455333992}
   m_CullTransparentMesh: 1
+--- !u!114 &1455333996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455333992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134bea30d8432974c9e2de98772e318b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1852598801 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1171453700477890087, guid: 9a63c425cebd7344499e328fc9576306, type: 3}
@@ -540,7 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcf1ba295951e642a5a67bc3b81a2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applePrefab: {fileID: 0}
+  applePrefab: {fileID: 9002784958212735730, guid: 6a73c53d591786e4cb423c9d069c5047, type: 3}
   speed: 10
   leftAndRightEdge: 24
   chanceToChangeDirections: 0.05
@@ -673,6 +704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Apple Tree
       objectReference: {fileID: 0}
+    - target: {fileID: 1290759695347508131, guid: 9a63c425cebd7344499e328fc9576306, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8044176927361954719, guid: 9a63c425cebd7344499e328fc9576306, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -683,7 +718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8044176927361954719, guid: 9a63c425cebd7344499e328fc9576306, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8044176927361954719, guid: 9a63c425cebd7344499e328fc9576306, type: 3}
       propertyPath: m_LocalPosition.z
@@ -717,5 +752,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1290759695347508131, guid: 9a63c425cebd7344499e328fc9576306, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a63c425cebd7344499e328fc9576306, type: 3}

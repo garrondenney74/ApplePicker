@@ -1,3 +1,14 @@
+/***
+ * Created By: Garron Denney
+ * Date Created: 2/7/22
+ * 
+ * Last Edited: N/A
+ * Last Edited By: N/A
+ * 
+ * Description: Controls basket movement and score aquisition
+ * 
+ ***/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,17 +29,29 @@ public class Basket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Get the current screen position of the mouse from Input
-        Vector3 mousePos2D = Input.mousePosition; // 1
-                                                  // The Camera's z position sets the how far to push the mouse into 3D
-        mousePos2D.z = -Camera.main.transform.position.z; // 2
-                                                          // Convert the point from 2D screen space into 3D game world space
-        Vector3 mousePos3D =
-        Camera.main.ScreenToWorldPoint(mousePos2D); // 3
-                                                    // Move the x position of this Basket to the x position of the Mouse
-        Vector3 pos = this.transform.position;
+        Vector3 mousePos2D = Input.mousePosition; // Get the current screen position of the mouse from Input
+        mousePos2D.z = -Camera.main.transform.position.z; // The Camera's z position sets the how far to push the mouse into 3D                                              
+        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D); // Convert the point from 2D screen space into 3D game world space                                       
+        Vector3 pos = this.transform.position; // Move the x position of this Basket to the x position of the Mouse
         pos.x = mousePos3D.x;
         this.transform.position = pos;
     }
+    void OnCollisionEnter( Collision coll ) // Find out what hit this basket
+    { 
+         
+        GameObject collidedWith = coll.gameObject; 
+        if ( collidedWith.tag == "Apple" ) 
+        { 
+            Destroy( collidedWith );
+        }
+        int score = int.Parse(scoreGT.text); 
+        score += 100; // Add points for catching the apple
+        scoreGT.text = score.ToString();// Convert the score back to a string and display it
+        if(score > HighScore.score)
+        {
+            HighScore.score = score;
+        }
+    }
+
 
 }

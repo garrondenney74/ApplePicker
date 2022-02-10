@@ -1,3 +1,16 @@
+/***
+ * Created By: Garron Denney
+ * Date Created: 2/7/22
+ * 
+ * Last Edited: N/A
+ * Last Edited By: N/A
+ * 
+ * Description: High score management
+ * 
+ ***/
+
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +21,12 @@ public class HighScore : MonoBehaviour
     static public int score = 1000;
     private void Awake()
     {
-        if(PlayerPrefs.HasKey("HighScore"))
+        if(PlayerPrefs.HasKey("ApplePickerHighScore"))
         {
-            score = PlayerPrefs.GetInt("HighScore");
+            score = PlayerPrefs.GetInt("ApplePickerHighScore");
         }
 
-        PlayerPrefs.SetInt("HighScore", score);
+        PlayerPrefs.SetInt("ApplePickerHighScore", score);
     }
 
     // Start is called before the first frame update
@@ -26,6 +39,10 @@ public class HighScore : MonoBehaviour
     void Update()
     {
         Text gt = this.GetComponent<Text>();
-        gt.text = 
+        gt.text = "High Score: "+score;
+        if (score > PlayerPrefs.GetInt("ApplePickerHighScore")) 
+        { 
+            PlayerPrefs.SetInt("ApplePickerHighScore", score);
+        }
     }
 }

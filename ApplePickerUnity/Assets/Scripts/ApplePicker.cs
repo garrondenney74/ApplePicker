@@ -1,6 +1,21 @@
+/***
+ * Created By: Garron Denney
+ * Date Created: 1/31/22
+ * 
+ * Last Edited: N/A
+ * Last Edited By: N/A
+ * 
+ * Description: Master script running game, lives counter, and game reset
+ * 
+ ***/
+
+
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ApplePicker : MonoBehaviour
 {
@@ -21,6 +36,7 @@ public class ApplePicker : MonoBehaviour
             Vector3 pos = Vector3.zero;
             pos.y = basketBottomY + (basketSpacingY * i);
             tBasketGO.transform.position = pos;
+            basketList.Add(tBasketGO);
             
         }
     }
@@ -48,13 +64,13 @@ public class ApplePicker : MonoBehaviour
         }//end forEach
 
         int basketIndex = basketList.Count - 1;
-        GameObject tBasketGo = basketList[basketIndex];
+        GameObject tBasketGO = basketList[basketIndex];
         basketList.RemoveAt(basketIndex);
-        Destroy(tBasketGo);
+        Destroy(tBasketGO);
 
         if(basketList.Count == 0)
         {
-            SceneManager.LoadScene("_Scene-00");
+            SceneManager.LoadScene("SampleScene");
         }
     }//end AppleDestroyed
 
